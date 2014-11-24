@@ -58,11 +58,12 @@ grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
+grails.app.context = "/"
 
 environments {
     development {
         grails.logging.jul.usebridge = true
-        domainMainUsers = 'http://localhost:8888'
+        domainMainUsers = 'http://api.maxibanda.com.mx'
     }
     production {
         grails.logging.jul.usebridge = false

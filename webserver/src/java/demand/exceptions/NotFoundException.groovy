@@ -1,4 +1,4 @@
-package exceptions
+package demand.exceptions
 import javax.servlet.http.HttpServletResponse
 
 class NotFoundException extends RuntimeException {

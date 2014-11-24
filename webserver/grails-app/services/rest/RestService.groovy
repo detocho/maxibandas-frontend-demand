@@ -5,9 +5,9 @@ import grails.converters.JSON
 import javassist.NotFoundException
 import net.sf.json.JSONNull
 import org.codehaus.groovy.grails.web.json.JSONObject
-import exceptions.NotFoundException
-import exceptions.ConflictException
-import exceptions.BadRequestException
+import demand.exceptions.NotFoundException
+import demand.exceptions.ConflictException
+import demand.exceptions.BadRequestException
 
 import grails.util.Environment
 import groovyx.net.http.*
