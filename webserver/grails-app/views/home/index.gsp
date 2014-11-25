@@ -2,10 +2,9 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>maxibanda.com.mx</title>
 	</head>
 	<body>
-    <div class="content slide">
         <section id="search">
             <article>
                 <h2>Busca tu banda</h2>
@@ -13,9 +12,9 @@
                     Elige entre las bandas disponibles para ambientar tu evento.
                     <br><b>Es fácil, rápido y seguro.</b>
                 </p>
-                <form>
+                <form  action="/listado" method="GET">
 
-                    <select>
+                    <select class="caja_seleccion big">
                         <option>¿Que tipo de música?</option>
 
                         <% for(int index=0; index< groups.size(); index++){ %>
@@ -24,7 +23,7 @@
 
                     </select>
 
-                    <select>
+                    <select class="caja_seleccion big">
                         <option>¿En donde?</option>
 
                         <% for(int index=0; index< states.size(); index++){ %>
@@ -32,7 +31,7 @@
                         <% } %>
                     </select>
 
-                    <select>
+                    <select class="caja_seleccion big">
                         <option>¿Para que evento?</option>
 
                         <% for(int index=0; index< events.size(); index++){ %>
@@ -45,6 +44,5 @@
                 </form>
             </article>
         </section>
-    </div>
 	</body>
 </html>

@@ -26,8 +26,8 @@
         <ul id="navToggle" class="button slide">
             <li></li><li></li><li></li>
         </ul>
-        <a href="" target="_blank"> <h1 class="logo"> Tu banda está aquí </h1> </a>
-    </header>
+        <a href="/" > <h1 class="logo"> Tu banda está aquí </h1> </a>
+
     <nav class="slide">
         <ul>
             <li>
@@ -46,8 +46,11 @@
             </div>
         </ul>
     </nav>
+    </header>
+    <div class="content slide">
+        <br><br><br>
     <g:layoutBody/>
-
+    </div>
     <footer>
         <div class="foo_up">
 
@@ -75,7 +78,7 @@
 
 <!-- Scripts -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" language="javascript" src="js/trunk.js"></script>
+<script src="${resource(dir: 'js', file: 'trunk.js')}"></script>
 <script type="text/javascript">
     $('a').click(function() {
         $('html, body').animate({
@@ -92,7 +95,7 @@
     });
 </script>
 <!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
+		<script src="${resource(dir: 'js', file: 'html5shiv.js')}"></script>
 		<![endif]-->
 <g:javascript library="application"/>
 <r:layoutResources />
