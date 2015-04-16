@@ -23,6 +23,7 @@ class SearchService {
                 status:"active"
         ]
 
+        restService.defineServiceResource('bands')
         def result = restService.getResource("/bands/search/", SEARCH_PARAMS_MAP)
 
         if(result.status != HttpServletResponse.SC_OK){

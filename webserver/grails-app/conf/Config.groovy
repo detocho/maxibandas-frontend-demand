@@ -63,11 +63,18 @@ grails.app.context = "/"
 environments {
     development {
         grails.logging.jul.usebridge = true
-        domainMainUsers = 'http://api.maxibanda.com.mx'
+        domainMainUsers = 'http://localhost:8888'
+        domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
+        domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
+        domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
     }
     production {
         grails.logging.jul.usebridge = false
         domainMainUsers = 'http://api.maxibanda.com.mx'
+
+        domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
+        domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
+        domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }

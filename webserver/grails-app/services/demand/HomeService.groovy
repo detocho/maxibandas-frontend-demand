@@ -24,6 +24,7 @@ class HomeService {
 
         def groups =[]
 
+        restService.defineServiceResource('categories')
         def result = restService.getResource("/categories/"+categoryIdGroups+"/")
 
         if(result.status != HttpServletResponse.SC_OK){
@@ -47,6 +48,7 @@ class HomeService {
     def getStates(){
 
         def estates =[]
+        restService.defineServiceResource('locations')
         def result = restService.getResource("/locations/"+locationIdStates+"/")
 
         if(result.status != HttpServletResponse.SC_OK){
@@ -68,6 +70,7 @@ class HomeService {
 
         def events = []
 
+        restService.defineServiceResource('categories')
         def result = restService.getResource("/categories/"+categoryIdEvents+"/")
 
         if(result.status != HttpServletResponse.SC_OK){

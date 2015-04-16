@@ -32,9 +32,33 @@ class RestService {
     def grailsApplication = new DefaultGrailsApplication()
     def urlBase = grailsApplication.config.domainMainUsers
 
+    def urlBaseCategories   = grailsApplication.config.domainMainCategories
+    def urlBaseLocations    = grailsApplication.config.domainMainLocations
+    def urlBaseBands        = grailsApplication.config.domainMainBands
+
 
 
     def restClient  = new RESTClient(urlBase)
+
+    def defineServiceResource(def resource){
+
+        switch (resource){
+
+            case 'categories':
+                restClient = new RESTClient(urlBaseCategories)
+                break
+            case 'locations':
+                restClient = new RESTClient(urlBaseLocations)
+                break
+            case 'bands':
+                restClient = new RESTClient(urlBaseBands)
+                break
+            default:
+                restClient = new RESTClient(urlBase)
+                break
+
+        }
+    }
 
 
     def getResource(def resource, def queryParams){
@@ -45,7 +69,7 @@ class RestService {
 
         try {
 
-            def resp = restClient.get(path:resource, query:queryParams)
+            def resp = restClient.get(path:resource, query:queryParams, requestContentType: 'application/json')
 
             if (resp.status == HttpServletResponse.SC_OK) {
 
@@ -73,7 +97,7 @@ class RestService {
 
         try {
 
-            def resp = restClient.get(path: resource)
+            def resp = restClient.get(path: resource, requestContentType: 'application/json')
 
             if (resp.status == HttpServletResponse.SC_OK) {
 

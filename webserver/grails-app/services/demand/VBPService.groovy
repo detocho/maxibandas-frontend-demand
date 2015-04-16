@@ -23,6 +23,7 @@ class VBPService {
 
         def bandId = params.bandId
 
+        restService.defineServiceResource('bands')
         def result = restService.getResource("/bands/"+bandId+"/")
 
         if(result.status != HttpServletResponse.SC_OK){
