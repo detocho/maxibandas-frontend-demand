@@ -21,7 +21,13 @@
                 <% bands.each{ %>
 
                 <li>
-                <a href="/banda/${it.band_id}"><img src="${it.pictures[0].url}"></a>
+                <a href="/banda/${it.band_id}">
+                    <% if (it.pictures[0]) { %>
+                        <img src="${it.pictures[0].url}">
+                    <% }else{%>
+                        <img src="${resource(dir: 'images', file: 'pic_upload.png')}">
+                    <%}%>
+                </a>
                 <h4>${it.title}</h4>
                 <p class="precioLp">
                     $ ${it.price_min}
