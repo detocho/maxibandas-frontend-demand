@@ -8,7 +8,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title><g:layoutTitle default="Grails"/></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 600px)">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,12 +20,15 @@
 </head>
 
 <body>
+
 <div class="mb">
     <header class="slide">
         <ul id="navToggle" class="button slide">
             <li></li><li></li><li></li>
         </ul>
         <a href="/" > <h1 class="logo"> Tu banda está aquí </h1> </a>
+
+    </header>
 
     <nav class="slide">
         <ul>
@@ -46,10 +48,9 @@
             </div>
         </ul>
     </nav>
-    </header>
+
     <div class="content slide">
-        <br><br><br>
-    <g:layoutBody/>
+        <g:layoutBody/>
     </div>
     <footer>
         <div class="foo_up">
@@ -62,8 +63,8 @@
 
             <ul class="foo_nav">
                 <li>
-					<a href="#">Preguntas Frecuentes</a>
-				</li>
+                    <a href="#">Preguntas Frecuentes</a>
+                </li>
                 <li>
                     <a href="#">Términos de Uso</a>
                 </li>
