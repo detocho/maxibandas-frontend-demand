@@ -67,6 +67,8 @@ environments {
         domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
         domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
         domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
+
+        domainMainPYB = 'http://ec2-52-11-188-38.us-west-2.compute.amazonaws.com/publica/'
     }
     production {
         grails.logging.jul.usebridge = false
@@ -75,6 +77,9 @@ environments {
         domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
         domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
         domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
+
+        domainMainPYB = 'http://ec2-52-11-188-38.us-west-2.compute.amazonaws.com/publica/'
+
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }

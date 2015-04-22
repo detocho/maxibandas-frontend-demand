@@ -22,58 +22,13 @@
 <body>
 
 <div class="mb">
-    <header class="slide">
-        <ul id="navToggle" class="button slide">
-            <li></li><li></li><li></li>
-        </ul>
-        <a href="/" > <h1 class="logo"> Tu banda está aquí </h1> </a>
-
-    </header>
-
-    <nav class="slide">
-        <ul>
-            <li>
-                <a href="#">Noticias</a>
-            </li>
-            <li>
-                <a href="#">Eventos</a>
-            </li>
-            <div class="anuncia">
-                <div class="ribbon"><h5>¡GRATIS!</h5></div>
-                <li>
-                    <a class="upload" href="#">Inscribe tu Banda <b>¡GRATIS!</b></a>
-                </li>
-                <div class="triangle-l"></div>
-                <div class="triangle-r"></div>
-            </div>
-        </ul>
-    </nav>
+    <mb:header name="header"  />
 
     <div class="content slide">
         <g:layoutBody/>
     </div>
-    <footer>
-        <div class="foo_up">
 
-            <p class="copyright">
-                <b>Todos los derechos reservados</b>
-                <br>
-                maxibandas.com.mx.
-            </p>
-
-            <ul class="foo_nav">
-                <li>
-                    <a href="#">Preguntas Frecuentes</a>
-                </li>
-                <li>
-                    <a href="#">Términos de Uso</a>
-                </li>
-                <li>
-                    <a href="#">Aviso de Privacidad</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+    <mb:footer name="footer"  />
 </div>
 
 
