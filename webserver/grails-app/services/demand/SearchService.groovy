@@ -22,12 +22,17 @@ class SearchService {
         Map SEARCH_PARAMS_MAP = [
                 status:"active"
         ]
+        def result
 
-        restService.defineServiceResource('bands')
-        def result = restService.getResource("/bands/search/", SEARCH_PARAMS_MAP)
+        try {
+            restService.defineServiceResource('bands')
+            result = restService.getResource("/bands/search/", SEARCH_PARAMS_MAP)
 
-        if(result.status != HttpServletResponse.SC_OK){
-            result.data = []
+            if (result.status != HttpServletResponse.SC_OK) {
+                result.data = []
+            }
+        }catch(Exception e){
+            result.data= []
         }
 
         result.data

@@ -64,21 +64,21 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         domainMainUsers = 'http://localhost:8888'
-        domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
+        domainMainCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainBands         = 'http://bandas.maxibanda.mx'
 
-        domainMainPYB = 'http://ec2-52-11-188-38.us-west-2.compute.amazonaws.com/publica/'
+        domainMainPYB = 'http://publica.maxibanda.mx/publica/'
     }
     production {
         grails.logging.jul.usebridge = false
         domainMainUsers = 'http://api.maxibanda.com.mx'
 
-        domainMainCategories    = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainLocations     = 'http://ec2-52-10-118-212.us-west-2.compute.amazonaws.com'
-        domainMainBands         = 'http://ec2-52-10-76-170.us-west-2.compute.amazonaws.com'
+        domainMainCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
+        domainMainBands         = 'http://bandas.maxibanda.mx'
 
-        domainMainPYB = 'http://ec2-52-11-188-38.us-west-2.compute.amazonaws.com/publica/'
+        domainMainPYB = 'http://publica.maxibanda.mx/publica/'
 
         // TODO: grails.serverURL = "http://www.changeme.com"
     }

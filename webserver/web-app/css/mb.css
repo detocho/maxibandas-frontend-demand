@@ -11,9 +11,10 @@ b{font-weight:700}
 
 
 body {
-	background-color: #fff;
+
+    background-image: linear-gradient(to bottom,#f8f8f8 0,#f8f8f8 100%);
 	font: 12px Arial, Helvetica, Geneva, sans-serif;
-	color: #9aa6af;
+	color: #000;
 }
 .mb {
 	overflow: hidden;
@@ -36,7 +37,7 @@ header {margin:0 0 0 0;  width:100%; background-color:#322117;
 header {
 	height: 70px;
 	position: fixed;
-	background-color: #2a2a2a;
+	background-color: #fff;
 	/*border-bottom: 5px solid #E4D2B6;*/
 }
 header h1 {
@@ -63,7 +64,7 @@ a img:hover {
 .button li {
 	width: 30px;
 	height: 4px;
-	background-color: #E4D2B6;
+	background-color: #000;
 	border-radius: 3px;
 	margin: 5px 0;
 }
@@ -84,7 +85,7 @@ nav li {
 }
 nav li a {
 	font-size: 15px;
-	color: #E4D2B6;
+	color: #000;
 	padding: 7px 15px;
 	display: block;
 }
@@ -113,8 +114,8 @@ font-size:15px;
 	padding: 2% 20px;
 }
 
-#listados, #listadoPage, #datos{
-min-height: 450px;
+#listados, #listadoPage, #navigatorPage, #datos{
+min-height: 500px;
 }
 /*buscador*/
 #search {
@@ -213,6 +214,29 @@ select:focus{
 {
     width:300px;
 }
+
+.caja_filtro
+{
+
+    height:30px;
+    font-family:Arial;
+    font-size:15px;
+    border: 1px solid #eee;
+    padding: 8px 10px;
+    margin:3px;
+    width: 150px;
+}
+.caja_search_header{
+    width: 480px;
+    height: 30px;
+    padding-left: 20px;
+    font-family: sans-serif;
+    font-size: 15px;
+    color: #000;
+    border: 1px solid #CCC;
+    border-right: 0px;
+}
+
 /*listados Home*/
 #listados {
 	background-color: #fff;
@@ -257,20 +281,24 @@ select:focus{
 }
 /*listado Externo*/
 #listadoPage {
-	background-color: #fff;
+	background-color: #f8f8f8;
+    display: inline-block;
+    margin-left: 22%;
+    margin-top: 70px;
 
 }
 #listadoPage ul{
 	margin: 0 auto;
-	width: 960px;
+	width: 925px;
+    background-color: #FFF;
 }
 #listadoPage li{
 	display: inline-block;
-	width: 22%;
+	width: 20%;
 	padding: 20px 14px;
 	text-align: center;
-	margin: 0 -2px;
-	border: 1px solid #EFDEC5;
+	margin: 0 7px;
+	/*border: 1px solid #EFDEC5;*/
 }
 #listadoPage li:hover{
 	box-shadow: 0px 0px 15px #999999;
@@ -278,21 +306,88 @@ select:focus{
 }
 #listadoPage img {
 	margin-bottom: 10px;
-	width: 210px;
-	height: auto;
+	width: 195px;
+    height: 110px;
 }
 #listadoPage h4 {
 	color: #333;
-	font-size: 1.5em;
+	font-size: 1.1em;
 	font-weight: 700;
 	letter-spacing: -.5px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+
+#navigatorPage{
+
+    display: inline-block;
+    width: 230px;
+    z-index:10 !important;
+    background-color: #FFF;
+    min-height:700px;
+    position: fixed;
+    margin-top: 69px;
+    padding-top: 20px;
+    border-right: 1px solid #CCC;
+}
+
+#navigatorPage span{
+    margin:5px auto 5px 20px;
+    color:#DF6810;
+    font-size: 17px;
+}
+
+#navigatorPage ul{
+    margin:5px auto 5px 25px;
+    color:#000;
+    font-size: 12px;
+}
+
+#navigatorPage ul a{
+    color:#000;
+    font-size: 12px;
+}
+
+#navigatorPage ul a:hover{
+    color:#000;
+    font-size: 12px;
+
+}
+
+#buttonSearch{
+    border: 1px solid rgb(242, 241, 241);
+    height: 34px;
+    border-color: #d3d3d3;
+    background: #f8f8f8;
+    color: #333;
+    width: 60px;
+}
+
+#buttonSearch:hover{
+    border-color: #c6c6c6;
+    background: #f0f0f0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.10);
+    cursor: pointer;
+}
+
+.button-search-component{
+    display: block;
+    border: none;
+    padding: 0;
+    opacity: .6;
+    text-indent: -10000px;
+    background: no-repeat url('../images/iconos.png') -570px -1px;
+    background-size: auto;
+    width: 30px;
+    height: 13px;
+    box-shadow: none;
+}
+
+
 .precioLp {
 	color: #DF6810;
-	font-size: 2em;
+	font-size: 1.5em;
 	font-weight: 700;
 	letter-spacing: -.5px;
 }
@@ -334,18 +429,19 @@ select:focus{
 }
 #pageNum{
 	padding-top: 20px;
-	text-align: right;
+	text-align: center;
 }
 #pageNum li{
 	display: inline-block;
 	width: auto;
+    height: 20px;
 	padding: 10px 14px;
 	text-align: center;
-	margin: 0 -2px;
-	border-top: none;
-	border-left: 1px solid #EFDEC5;
-	border-right: none;
-	border-bottom: none;
+	margin: 5px -2px;
+    background-color:#DF6810;
+    color: #FFF;
+
+
 }
 .prev{
 	border-left: none !important;
@@ -360,11 +456,11 @@ select:focus{
 /*DETALLE*/
 #datos article, #descripcion article{
 	margin: 0 auto;
-	width: 970px;
+	width: 100%;
 }
 #datos, #descripcion{
-	padding:5% 20px;
-	background-color: #fff;
+	padding:8% 3%;
+	/*background-color: #fff;*/
 }
 #descripcion p {
 margin-top: 10px;
@@ -381,14 +477,18 @@ margin-top: 15px;
 margin-right: 0;
 }
 .leftSide{
-	width:500px;
+	width:855px;
 	display:inline-block;
+    background-color: #FFF;
+    padding: 1%;
 }
 .rightSide {
-	width: 440px;
-	display: inline-block;
-	margin-left: 20px;
-	vertical-align: top;
+    width: 380px;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: top;
+    background-color: #FFF;
+    padding: 1%;
 }
 #descripcion{
 	background-color: #EAEAEA;
@@ -456,17 +556,61 @@ margin-top: 15px;
 }
 
 #mail{
-	width: 400px;
-	margin:5px 0 10px;
+	width: 98%;
+	margin:5px -5px 10px;
 }
 #name{
-	width: 258px;
-	margin-top: 5px;
+	width: 98%;
+    margin:5px -5px 10px;
 }
 
 .big iframe{
-	width:500px;
-	height:375px;
+    width: 855px;
+    height: 480px;
+}
+
+.VBP-title{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    padding: 2%;
+    font-weight: bold;
+
+}
+#VBP-listado{
+    margin-top: 40px;
+}
+
+#VBP-listado li{
+
+    border-top: 1px solid #CCC;
+    margin-top: 3px;
+}
+
+#VBP-listado li div{
+    display: inline-block;
+}
+
+.VBP-listado-image{
+    padding: 1%;
+    vertical-align: top;
+}
+.VBP-listado-datos{
+    padding: 1%;
+    vertical-align: top;
+}
+.VBP-listado-datos span{
+    display: list-item;
+    font-size: 12px;
+    color: #AFAFAF;
+    line-height: normal !important;
+
+}
+.VBP-listado-datos .titleListado{
+    display: list-item;
+    font-size: 14px;
+    color: #000 !important;
+    line-height: normal !important;
+
 }
 /*
 #descripcion {
@@ -505,10 +649,10 @@ h4 {
 }*/
 /*footer*/
 footer {
-	background-color: #333333;
+	background-color: #f8f8f8;
 }
 .foo_up {
-	background-color: #231F20;
+	background-color: #fff;
 	padding: 10px 2%;
 	display: inline-block;
 	width: 96%;
@@ -625,7 +769,7 @@ transform: rotate(-35deg);
 	header {
 		height: 65px;
 		z-index: 2;
-		background-color: #060a0c;
+		background-color: #FFF;
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -975,6 +1119,7 @@ transform: rotate(-35deg);
 	}
 	p.ubicacionLp {
 		margin-top: 5px;
+        color: #999;
 	}
 	.vermas {
 		padding: 10px 30px;
@@ -1125,7 +1270,7 @@ transform: rotate(-35deg);
 		font-size: 2.5em;
 	}
 	#mail {
-		width: 400px;
+		width: 258px;
 	}
 	#name {
 		width: 260px;

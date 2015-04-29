@@ -24,21 +24,26 @@ class HomeService {
 
         def groups =[]
 
-        restService.defineServiceResource('categories')
-        def result = restService.getResource("/categories/"+categoryIdGroups+"/")
+        try {
+            restService.defineServiceResource('categories')
+            def result = restService.getResource("/categories/" + categoryIdGroups + "/")
 
-        if(result.status != HttpServletResponse.SC_OK){
-            result.data = []
-        }
-
-        result.data.children_categories.each{
-            if (it.status == 'active'){
-                groups.add(
-
-                        categoryId:it.categoryId,
-                        name:it.name
-                )
+            if (result.status != HttpServletResponse.SC_OK) {
+                result.data = []
             }
+
+            result.data.children_categories.each {
+                if (it.status == 'active') {
+                    groups.add(
+
+                            categoryId: it.categoryId,
+                            name: it.name
+                    )
+                }
+            }
+        }catch(Exception e){
+            groups = []
+
         }
 
         groups
@@ -48,19 +53,23 @@ class HomeService {
     def getStates(){
 
         def estates =[]
-        restService.defineServiceResource('locations')
-        def result = restService.getResource("/locations/"+locationIdStates+"/")
+        try {
+            restService.defineServiceResource('locations')
+            def result = restService.getResource("/locations/" + locationIdStates + "/")
 
-        if(result.status != HttpServletResponse.SC_OK){
-            result.data = []
-        }
+            if (result.status != HttpServletResponse.SC_OK) {
+                result.data = []
+            }
 
-        result.data.children_locations.each{
-            estates.add(
+            result.data.children_locations.each {
+                estates.add(
 
-                    locationId:it.locationId,
-                    name:it.name
-            )
+                        locationId: it.locationId,
+                        name: it.name
+                )
+            }
+        }catch(Exception e){
+            estates = []
         }
 
         estates
@@ -70,21 +79,25 @@ class HomeService {
 
         def events = []
 
-        restService.defineServiceResource('categories')
-        def result = restService.getResource("/categories/"+categoryIdEvents+"/")
+        try {
+            restService.defineServiceResource('categories')
+            def result = restService.getResource("/categories/" + categoryIdEvents + "/")
 
-        if(result.status != HttpServletResponse.SC_OK){
-            result.data = []
-        }
-
-        result.data.children_categories.each{
-            if (it.status == 'active'){
-                events.add(
-
-                        categoryId:it.categoryId,
-                        name:it.name
-                )
+            if (result.status != HttpServletResponse.SC_OK) {
+                result.data = []
             }
+
+            result.data.children_categories.each {
+                if (it.status == 'active') {
+                    events.add(
+
+                            categoryId: it.categoryId,
+                            name: it.name
+                    )
+                }
+            }
+        }catch(Exception e){
+            events = []
         }
 
         events
