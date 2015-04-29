@@ -9,12 +9,16 @@ class VBPController {
     def index() {
 
         def band =vbpService.getBand(params)
+        def bandsRecommended = vbpService.getRecommended(params)
+        def nameCategory = vbpService.getNameCategory(band.category_id)
 
         def urlVideo = urlVideoEmbebed.replace('id_video',getIdVideo(band.url_videos[0]))
 
         def model = [
                 "band"     :band,
-                "urlVideo" :urlVideo
+                "urlVideo" :urlVideo,
+                "bandsRecommended" :bandsRecommended.results,
+                "nameCategory":nameCategory.name
         ]
 
         render (view:'index', model:model)

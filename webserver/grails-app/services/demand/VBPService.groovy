@@ -18,6 +18,7 @@ class VBPService {
 
 
     def restService = new RestService()
+    def searchService
 
     def getBand(def params){
 
@@ -32,5 +33,44 @@ class VBPService {
 
         result.data
 
+    }
+
+    def getRecommended (def params){
+
+        Map SEARCH_PARAMS_MAP = [
+                status:"active"
+        ]
+        def result
+
+        try {
+            restService.defineServiceResource('bands')
+            result = restService.getResource("/bands/search/", SEARCH_PARAMS_MAP)
+
+            if (result.status != HttpServletResponse.SC_OK) {
+                result.data = []
+            }
+        }catch(Exception e){
+            result.data= []
+        }
+
+        result.data
+    }
+
+    def getNameCategory(def categoryId){
+
+        def result
+
+        try {
+            restService.defineServiceResource('categories')
+            result = restService.getResource("/categories/"+categoryId)
+
+            if (result.status != HttpServletResponse.SC_OK) {
+                result.data = []
+            }
+        }catch(Exception e){
+            result.data= []
+        }
+
+        result.data
     }
 }
