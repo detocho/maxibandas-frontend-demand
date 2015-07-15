@@ -3,130 +3,140 @@
 <head>
     <meta name="layout" content="main"/>
     <title>Search </title>
+    <link rel="stylesheet" href="http://getbootstrap.com/examples/dashboard/dashboard.css"/>
 </head>
 <body>
 
-<section id="navigatorPage">
 
-    <div>
-        <span>Tipo de música:</span>
-        <ul>
+<div class="container-fluid" ng-controller="DemandPageController" data-ng-init="initBandas()" >
+    <div class="row" >
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="title">Bandas</li>
+                <li class="subtitle">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle button-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tipo de musica <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="genero in generos"><a href="#">{{genero.name}}</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="subtitle">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle button-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Estado <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="state in states"><a href="#">{{state.name}}</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="subtitle">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle button-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Para  <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="event in events"><a href="#">{{event.name}}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li class="title">Eventos</li>
+                <li class="subtitle">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle button-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tipo de evento <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Feria Regional</a></li>
+                            <li><a href="#">Concierto</a></li>
+                            <li><a href="#">Estadios</a></li>
+                            <li><a href="#">Palenques</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="subtitle">
+                    <!-- Single button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning dropdown-toggle button-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Lugar de evento  <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="state in states"><a href="#">{{state.name}}</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-            <li>
-                <select class="caja_filtro">
+
+        <div class="col-sm-auto col-sm-offset-3 col-md-auto col-md-offset-2 main">
 
 
-                    <% for(int index=0; index< groups.size(); index++){ %>
-                    <option value=${groups[index].categoryId}>${groups[index].name}</option>
-                    <% } %>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-auto col-lg-6">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Banda</a></li>
+                            <li><a href="#">Baja California Sur</a></li>
+                            <li class="active">Para Bodas</li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-auto col-lg-6">
+                        <ul class="breadcrumb navbar-right">
+                            <li>Bandas: <b>{{offset}}</b> - <b>{{limit}}</b> de <b>{{total}}</b><li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-                </select>
-            </li>
 
+            <h1 class="page-header"></h1>
+            <div class="row">
+                <div class="col-xs-auto col-lg-3" ng-repeat="band in searchBands">
+                    <div class="thumbnail">
+                        <a href="/banda/{{band.band_id}}" class="link-search-thumbnail" >
+                            <img src="images/banda_2.jpg" alt="...">
+                            <div class="caption">
+                                <h3>{{band.name}} </h3>
+                                <p class="precio">Desde <span>{{band.price_min | noFractionCurrency}}</span></p>
+                                <p class="estado">{{band.location.parent_location[1].name}}<p>
+                            </div>
+                        </a>
+                    </div>
+                </div><!--/.col-xs-6.col-lg-4-->
+            </div><!--/row-->
 
-        </ul>
+            <nav ng-show="maxPage > 1">
+                <ul class="pagination">
+                    <li ng-click="getBandsPaginate(currentPage - 1)" ng-show="currentPage > 1">
+                        <a type="prev" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+
+                    <li ng-repeat="page in pages" ng-click="getBandsPaginate(page)">
+                        <a href="#">{{page}} <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li ng-click="getBandsPaginate(currentPage + 1)" ng-show="currentPage < maxPage">
+                        <a href="#" aria-label="Next" type="next" >
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <mb:footer name="footer"  />
+        </div><!--/.col-xs-12.col-sm-9-->
     </div>
-
-    <div>
-        <span>Para que evento</span>
-        <ul>
-
-            <li>
-                <select class="caja_filtro">
-
-
-                    <% for(int index=0; index< events.size(); index++){ %>
-                    <option value=${events[index].categoryId}>${events[index].name}</option>
-                    <% } %>
-
-                </select>
-            </li>
-
-
-        </ul>
-    </div>
-
-    <div>
-        <span>Estado</span>
-        <ul>
-
-            <li>
-                <select class="caja_filtro">
-
-                    <% for(int index=0; index< states.size(); index++){ %>
-                    <option value=${states[index].locationId}>${states[index].name}</option>
-                    <% } %>
-                </select>
-            </li>
-
-
-        </ul>
-    </div>
-
-</section>
-
-<section id="listadoPage">
-    <form class="showListado">
-
-        <% if (total <= limit){%>
-        <label>Mostrando <b>${total}</b> de ${total}</label>
-
-
-        <%}%>
-
-        <% if (total > limit){%>
-        <label>Mostrando de <b>${offset + 1}</b> a <b> ${total - limit} </b> de <b>${total}</b> </label>
-
-        <%}%>
-
-        <% if (total == 0){%>
-        <label><h1>No encontramos resultados para tu tipo de filtro pero te recomendamos...</h1></label>
-        <%}%>
-
-
-        <select>
-            <option>Ordenar por</option>
-            <option value="Precio">Precio</option>
-            <option value="Ubicacion">Ubicación</option>
-
-        </select>
-    </form>
-
-    <ul>
-
-
-        <% bands.each{ %>
-
-        <li>
-            <a href="/banda/${it.band_id}">
-                <% if (it.pictures[0]) { %>
-                <img src="${it.pictures[0].url}">
-                <% }else{%>
-                <img src="${resource(dir: 'images', file: 'pic_upload.png')}">
-                <%}%>
-
-            <h4>${it.title}</h4>
-            <p class="precioLp">
-                $ ${it.price_min}
-            </p>
-            <p class="ubicacionLp">
-                ${it.location.parent_location[1].name}
-            </p>
-            </a>
-
-        </li>
-        <% } %>
-
-
-
-    </ul>
-    <ul id="pageNum">
-        <% if (total > limit){%>
-        <a href="#"><li>Cargar mas resultados...</li></a>
-        <%}%>
-
-    </ul>
-</section>
+</div>
 
 </body>
 </html>

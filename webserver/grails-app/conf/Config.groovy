@@ -64,11 +64,14 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         domainMainUsers = 'http://localhost:8888'
-        domainMainCategories    = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
-        domainMainLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
-        domainMainBands         = 'http://bandas.maxibanda.mx'
+        domainMainCategories    = 'http://localhost:8888'
+        domainMainLocations     = 'http://localhost:8888'
+        domainMainBands         = 'http://localhost:8888'
 
-        domainMainPYB = 'http://publica.maxibanda.mx/publica/'
+        domainMainPYB       = 'http://publica.maxibanda.mx/publica/'
+        domainMainCuenta    = 'http://cuenta.maxibanda.mx/perfil/'
+        domainMainEvents    = 'http://eventos.maxibanda.mx/'
+        domainMainNews      = 'http://noticias.maxibanda.mx/'
     }
     production {
         grails.logging.jul.usebridge = false
@@ -78,7 +81,10 @@ environments {
         domainMainLocations     = 'http://ec2-54-69-9-226.us-west-2.compute.amazonaws.com'
         domainMainBands         = 'http://bandas.maxibanda.mx'
 
-        domainMainPYB = 'http://publica.maxibanda.mx/publica/'
+        domainMainPYB       = 'http://publica.maxibanda.mx/publica/'
+        domainMainCuenta    = 'http://cuenta.maxibanda.mx/perfil/'
+        domainMainEvents    = 'http://eventos.maxibanda.mx/'
+        domainMainNews      = 'http://noticias.maxibanda.mx/'
 
         // TODO: grails.serverURL = "http://www.changeme.com"
     }

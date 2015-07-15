@@ -7,52 +7,58 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><g:layoutTitle default="Grails"/></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 600px)">
-    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="HandheldFriendly" content="True">
-    <meta name="apple-mobile-web-app-status-bar-style" content="brown">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://getbootstrap.com/examples/offcanvas/offcanvas.css">
     <link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'mb.css')}" type="text/css">
     <g:layoutHead/>
     <r:layoutResources />
 </head>
 
-<body>
+<body ng-app="DemandPage" >
 
-<div class="mb">
     <mb:header name="header"  />
 
-    <div class="content slide">
-        <g:layoutBody/>
-    </div>
 
-    <mb:footer name="footer"  />
-</div>
+    <g:layoutBody/>
+
 
 
 <!-- Scripts -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="${resource(dir: 'js', file: 'trunk.js')}"></script>
-<script type="text/javascript">
-    $('a').click(function() {
-        $('html, body').animate({
-            scrollTop : $($(this).attr('href')).offset().top
-        }, 500);
-        return false;
-    });
-    $(window).on("scroll", function() {
-        if ($(this).scrollTop() > 280) {
-            $("#menu").addClass("yellow");
-        } else {
-            $("#menu").removeClass("yellow");
-        }
-    });
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<script src="${resource(dir: 'js', file: 'angular.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'angular-resource.min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'underscore-min.js')}"></script>
+<script src="${resource(dir: 'js', file: 'angular-file-upload.js')}"></script>
+<script src="${resource(dir: 'js', file: 'angular-file-upload-shim.js')}"></script>
+<script src="${resource(dir: 'js', file: 'app.js')}"></script>
+<script src="${resource(dir: 'js', file: 'controller.js')}"></script>
+<script src="${resource(dir: 'js', file: 'service.js')}"></script>
+<script>
+    var apiBaseUrl     = "http://" + document.domain + "\\:8888";
+    var apiBaseUrlLocations     = "http://" + document.domain + "\\:8888";
+    var apiBaseUrlCategories    = "http://" + document.domain + "\\:8888";
+    var apiBaseUrlImages        = "http://" + document.domain + ":8080/pictures/";
 </script>
-<!--[if lt IE 9]>
-		<script src="${resource(dir: 'js', file: 'html5shiv.js')}"></script>
-		<![endif]-->
+
+<script type="text/javascript">
+
+    $( document ).ready(function() {
+        $('.carousel').carousel({
+            interval:false
+        });
+    });
+
+</script>
+
 <g:javascript library="application"/>
 <r:layoutResources />
 </body>

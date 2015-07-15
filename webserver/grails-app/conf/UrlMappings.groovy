@@ -4,7 +4,7 @@ class UrlMappings {
 
         "/" (controller:'Home',action:'Index')
 
-        "/listado/" (controller: 'Search', action:'Index')
+        "/bandas/" (controller: 'Search', action:'Index')
 
         "/banda/$bandId?" (controller:'VBP', action:'Index')
 
